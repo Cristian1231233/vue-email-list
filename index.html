@@ -9,15 +9,19 @@
 </head>
 <body>
     <div id="app" class="text-center py-4">
-        <h1 v-if="!(error)">Errore</h1>
-        <div v-else>
-       <button @click="getEmail" class="btn-primary">Aggiorna</button>
-       <ul class="py-4">
-           <li v-for="email in emails" class="py-2">{{email}}</li>
-       </ul>
+        
+        
+        <div v-if="!error">
+          <button @click="getEmail" class="btn-primary">Aggiorna</button>
+          <ul class="py-4">
+             <li v-if="!loading" v-for="email in emails" class="py-2">{{email}}</li>
+             <li v-else>Loading...</li>
+         </ul>
+       </div>
+       <h1 v-else>Error</h1>
        
        
-      </div>
+      
         
     </div>
 
